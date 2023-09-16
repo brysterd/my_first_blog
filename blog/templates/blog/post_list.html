@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog website</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
+{% block content%}
     <div class="container">
         <h1>This is my container featuring yada yada</h1>
+        {% for post in posts %}
+            <div>
+                <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
+                <p class="text"></p>{{post.text}}
+            </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+{%endblock%}
